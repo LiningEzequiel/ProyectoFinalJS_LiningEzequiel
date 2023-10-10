@@ -1,0 +1,994 @@
+/*modelo para familias importadas locales*/
+/*@font-face {
+    font-family: '';
+    src: url();
+}*/
+
+
+/*resetamos los valores del navegador*/
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* definimos propiedades de los encabezados*/
+.encabezado {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(19, 134, 19);
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+/* sacamos el subrayado a todos los enlaces*/
+a {
+    text-decoration: none;
+}
+
+/*aplicamos color gris, familia de fuente Poppins a todos los parrafos por defecto*/
+p {
+    /* background-color: bisque; */
+    color: #626262;
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    margin: 5px;
+}
+
+
+
+h2 {
+    /* background-color: aqua; */
+    font-size: 1.5em;
+    /* color: black; */
+    font-family: 'Montserrat', sans-serif;
+    /* margin: 5px; */
+    /* padding: 5px; */
+}
+
+
+h3 {
+    font-size: 1.5rem;
+}
+/* definimos un class para los contenedores con fondo de color*/
+
+
+
+/*aplicamos estilo diferente al titulo del indice*/
+.intro {
+    color: black;
+    /* background-color:rgba(245, 245, 235, 0.527); */
+    font-weight: 300;
+    /* height: 50px; */
+    text-align: center;
+
+
+}
+
+
+
+/*aplicamos color y tipografia a todos los subtitulos de cajas que tengan fondo blanco */
+
+.subtituloEnNegro {
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px 50px 10px 50px;
+    padding: 50px 50px 10px 50px;
+    text-align: center;
+
+}
+
+
+.contenedor {
+
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+
+}
+
+.aside {
+    background-color: grey;
+
+}
+
+/*aplicamos estilo de texto negro para descripcion de productos*/
+.producto {
+    
+    background-color:#c5c4c4da;
+    font-family: 'Montserrat', sans-serif;
+    /* color: black; */
+    
+    text-align: start;
+    width: 600px;
+    
+    padding: 10px;
+    margin: 10px;
+
+}
+
+/*defino una clase para tamaño de img de productos*/
+
+/* .boxProduct {
+    background-color: rgb(37, 36, 36);
+    width: 220px;
+    display: inline;
+    margin: 20px;
+
+} */
+
+.boxProduct {
+    background-color: rgb(37, 36, 36);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+   height: 5em;
+    margin: 10px;
+    justify-content: space-between;
+
+}
+
+.boxCabecera p {
+    color: #3da04e;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.boxCabecera {
+    background-color: rgb(37, 36, 36);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid rgb(204, 203, 203)
+}
+
+.boxDetalle {
+    color: #3da04e;
+    background-color: rgb(37, 36, 36);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid rgb(204, 203, 203)
+}
+
+.botonComprar {
+
+font-family: 'Poppins', sans-serif;
+color: red;
+    background-color: rgb(199, 199, 199);;
+    width: 120px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid rgb(255, 232, 232)
+}
+
+
+
+
+.boxProductoElegido {
+    background-color: rgb(37, 36, 36);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid rgb(204, 203, 203)
+}
+
+
+li {
+    /* background-color: blue; */
+    
+    list-style: none;
+
+}
+
+.boxProduct .input:hover {
+    border: 1px solid rgb(37, 36, 36)
+}
+
+.boxProduct button[type="button"]:hover {
+    background-color: rgb(105, 67, 46);
+}
+
+/* [type="button"] */
+.boxProduct button {
+    
+    /* font-size: 0.8em; */
+    font-family: 'Poppins', sans-serif;
+    background-color: green;
+    width: 120px;
+    
+    justify-content: flex-end;
+    /* justify-content: center; */
+    padding: 5px;
+    margin: 5px;
+}
+
+.boxProductoElegido button {
+    
+    /* font-size: 0.8em; */
+    font-family: 'Poppins', sans-serif;
+    background-color: green;
+    width: 80px;
+    
+    justify-content: flex-end;
+    /* justify-content: center; */
+    padding: 5px;
+    margin: 5px;
+}
+
+
+/*defino una clase para tamaño de img de productos*/
+
+.imagenProducto {
+    width: 60px;
+    margin: 10px;
+
+}
+
+/* background-color: #c5c4c43d; */
+
+.inputCantidad {
+    height: 2em;
+    background-color: #c5c4c4da;
+    width: 120px;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    /* justify-content: center; */
+    align-self: center;
+
+
+}
+
+
+/*defino un class para color de textos sobre fondo de color*/
+
+.textoBlanco {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    /* background-color: aqua; */
+    text-align: center;
+    padding: 10px;
+    /* line-height: 3rem; */
+
+
+
+}
+
+/*definimos un fondo para textos blanco*/
+.fondoColor {
+    background-color: #3da04e;
+    width: 100%;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+
+/*defino un class para color de textos sobre fondo blanco*/
+
+.subtituloEnColor {
+    color: #3da04e;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    
+}
+
+/*creamos una clase para subtitulos en negro*/
+.subtitulo {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+
+/* inicio estilos del footer*/
+
+/*definimos una clase footer general*/
+.footer {
+    display: flex;
+    background-color: rgb(37, 36, 36);
+    justify-content: center;
+
+}
+
+/*definimos una clase para centrar el footer*/
+
+.centroFooter {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1300px;
+    justify-content: space-between;
+
+}
+
+/*definimos el color del texto en el footer*/
+
+.textoFooter {
+    /* background-color: aqua; */
+    color: #626262;
+}
+
+.conTextFooter {
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+}
+
+
+
+.logoFooter {
+    /* background-color: yellow; */
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+/*definimos un contenedor de iconos*/
+
+.iconContent {
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+
+}
+
+
+/*defino un tamaño para iconos*/
+.icono {
+    /* background-color: red; */
+    width: 40px;
+
+
+
+}
+
+
+
+
+
+/* fin estilos del footer*/
+
+
+
+
+
+/*introducimos una imagen como fondo*/
+.fondoImagen {
+    /* height: 500px; */
+    background-image: url('../imagenes/sem.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* object-fit: fill; */
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+
+/*aplicamos el fondo al footer*/
+.fondoOscuro {
+    background-color: rgb(37, 36, 36);
+    
+
+}
+
+
+/*defino una clase para aplicar un fondo claro*/
+
+.fondoClaro {
+    background-color: rgb(255, 255, 235);
+    /* width: 100%; */
+
+}
+
+
+.fondoIntro {
+    /* background-image: url('../imagenes/bosqueportada.jpg');*/
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+
+}
+
+/*definimos una clase para la imagen de portada*/
+.portada {
+
+    width: 100%;
+    height:auto;
+
+}
+
+/* definimos una clase para las imagenes de Unidades de Negocios*/
+.imagenMediana {
+
+    width: 100%;
+    
+   
+}
+
+/*defino una clase para los contenedores de texto*/
+
+.parrafoCentrado {
+    background-color: rgba(245, 245, 220, 0.397);
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+}
+
+/*defino un contenedor para imagen sin margenes*/
+
+.contenedorImagen {
+    /* background-color: brown; */
+    /* width: 100%; */
+    height: auto;
+    padding: 0;
+
+    /* background-color: aqua; */
+}
+
+.contenedorImagenUN {
+    /* background-color: brown; */
+    /* width: 100%; */
+    height: auto;
+    padding: 0;
+
+    /* background-color: aqua; */
+}
+
+
+.contenedorTexto {
+    /* width: 100%; */
+    /* height: 20rem; */
+    background-color: rgba(245, 245, 220, 0.397);
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* overflow: auto; */
+    /* margin: 50px; */
+    /* padding: 20px; */
+
+}
+
+
+.contTextoGrande {
+    width: 950px;
+    height: 425px;
+    background-color: rgba(245, 245, 220, 0.397);
+    display: inline-block;
+    overflow: auto;
+
+}
+
+/*Inicio Header*/
+
+/*definimos una clase para los elementos del navegador*/
+.nav-item {
+    color: #3da04e;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*otra manera de acomodar los list item sin la necesidad de usar inline -block*/
+.navbar ul {
+    /* background-color: aqua; */
+    display: flex;
+
+}
+
+/*aplicamos un estilo especifico a los list item*/
+
+.navbar ul li {
+    /* background-color: blue; */
+    padding: 20px;
+    margin: 5px;
+    list-style: none;
+
+}
+
+/*una forma de ser especifico a la hora de aplicar estilos*/
+
+nav.navbar {
+    /* background-color: rgb(255, 0, 212); */
+    display: flex;
+    align-items: center;
+}
+
+/*check-menu*/
+#checkbox-menu,
+label.menu {
+    display: none;
+}
+
+label.menu {
+    font-size: 3rem;
+    color: black;
+    cursor: pointer;
+}
+
+/* creamos una clase para el logo del header*/
+.logo {
+    /* background-color: yellow; */
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.header {
+    /* background-color: beige; */
+
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+/*definimos un contenedor para centrar el header*/
+.centroHeader {
+
+    /* background-color: bisque; */
+    width: 1300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+/*Fin Header*/
+
+/* .fondoClaro nav { */
+
+/* position: relative;
+    bottom: 25px;
+    left: 500px; */
+
+/* } */
+
+/* .fondoClaro img { */
+/* position: relative;
+    left: 300px; */
+/* } */
+
+/*defino una clase para organizar el contenido de galeria*/
+.contenGaleria {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    /* width: 1000px; */
+    height: 1800px;
+    /* background-color: aqua; */
+
+}
+
+
+
+/*defino un tamaño para la galeria*/
+.imagenGaleria {
+    width: 400px;
+    margin: 20px;
+
+}
+
+
+/* defino una clase para posicionar cajas genericas*/
+.boxPosition {
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fondo{
+    background-color: red;
+    
+    
+}
+
+.contenedorAngosto {
+    width: 90%;
+    max-width: 1300px;
+    background-color: rgba(255, 255, 220, 0.5);
+    margin: 10px auto;
+
+}
+
+/* comenzamos a definir un grid para contacto"*/
+
+.containerContacto {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 4fr;
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-areas: "encabezadoContact encabezadoContact encabezadoContact encabezadoContact"
+        ". mensaje direct1 ."
+        ". mensaje direct2 ."
+        ". mapsindustrial mapsmaderera .";
+}
+
+
+.encabezadoContact {
+    grid-area: encabezadoContact;
+}
+
+.mensaje {
+    background-color: rgba(245, 245, 220, 0.397);
+    border-radius: 10px;
+    grid-area: mensaje;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.direct1 {
+    /* border: 1px solid; */
+    background-color: rgba(245, 245, 220, 0.397);
+    border-radius: 10px;
+    grid-area: direct1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.direct2 {
+    /* border: 1px solid; */
+    background-color: rgba(245, 245, 220, 0.397);
+    border-radius: 10px;
+    grid-area: direct2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mapsindustrial {
+    /* border: 1px solid; */
+    background-color: rgba(245, 245, 220, 0.397);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+    grid-area: mapsindustrial;
+    display: flex;
+    flex-direction: column;
+}
+
+.mapsmaderera {
+    /* border: 1px solid; */
+    background-color: rgba(245, 245, 220, 0.397);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+    grid-area: mapsmaderera;
+    display: flex;
+    flex-direction: column;
+}
+
+.datoH4 {
+    /* background-color: blue; */
+    margin: 5px;
+    padding: 5px;
+}
+
+.datoH4 p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.mensaje H3 {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}
+
+.mensaje div {
+    /* background-color: blue; */
+    /* padding: 5px; */
+    margin: 5px;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form {
+    /* background-color: yellow; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+
+}
+
+/* .form input {
+    background-color: #c5c4c43d;
+    width: 100%;
+
+} */
+
+
+/* .form textarea {
+    background-color: #c5c4c43d;
+    width: 100%;
+    min-height: 150px;
+} */
+
+
+
+
+/* .input:focus {
+    background: bisque;
+    outline: none;
+} */
+/* .form .input:hover {
+    border: 1px solid rgb(37, 36, 36)
+} */
+
+/* .form input[type="submit"] {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: bisque;
+    width: 30%;
+    height: 3rem;
+    align-self: flex-end;
+} */
+
+/* .form input[type="submit"]:hover {
+    background-color: rgb(105, 67, 46);
+} */
+
+
+/* .formContainer { */
+    /* background-color: pink; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+/* } */
+
+
+/*fin del estilo grid de contactos*/
+
+
+
+/*Inicio de MediaQueries*/
+
+@media (max-width: 480px) {
+    .logo {
+        /* background-color: yellow; */
+        width: 200px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 120px;
+        right: 10px;
+        background-color: rgb(64, 65, 65);
+        border-radius: 20px;
+    }
+
+    label.menu {
+        display: block;
+        margin-right: 20px;
+
+
+    }
+
+    #checkbox-menu:checked~ul {
+        display: block;
+    }
+
+    .centroHeader {
+        /* background-color: bisque; */
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .portada {
+        height: 350px;
+    }
+
+    .containerContacto {
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto auto 3fr 3fr;
+        row-gap: 5px;
+        grid-template-areas: "encabezadoContact"
+            "mensaje"
+            "direct1"
+            "direct2"
+            "mapsindustrial"
+            "mapsmaderera";
+    }
+
+    .mensaje H3 {
+        /* background-color: aqua; */
+        font-size: 1em;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .mensaje div {
+        margin: 5px;
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: flex-start; */
+    }
+
+    .mensaje {
+        background-color: rgba(245, 245, 220, 0.397);
+        border-radius: 10px;
+        grid-area: mensaje;
+        padding: 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* justify-content: space-around; */
+    }
+}
+
+@media screen and (min-width:481px) and (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 120px;
+        right: 10px;
+        background-color: rgba(64, 65, 65, 0.9);
+        border-radius: 20px;
+    }
+
+    label.menu {
+        display: block;
+        margin-right: 20px;
+
+    }
+
+    #checkbox-menu:checked~ul {
+        display: block;
+    }
+
+    .centroHeader {
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .containerContacto {
+        width: 100%;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr auto 2fr 2fr 3fr 3fr;
+        row-gap: 5px;
+        grid-template-areas: "encabezadoContact encabezadoContact encabezadoContact"
+            ". mensaje ."
+            ". direct1 ."
+            ". direct2. "
+            ". mapsindustrial ."
+            ". mapsmaderera .";
+    }
+
+    .mensaje H3 {
+        font-size: 1em;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .mensaje {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mensaje div {
+        /* margin: 5px; */
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+    .parrafoCentrado p {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+
+    .containerContacto {
+        /* background-color: aqua; */
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto auto 3fr;
+        row-gap: 5px;
+        grid-template-areas: "encabezadoContact encabezadoContact"
+            "mensaje mensaje"
+            "direct1 direct2"
+            "mapsindustrial mapsmaderera";
+    }
+
+    .mensaje H3 {
+        font-size: 1em;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .mensaje {
+        background-color: rgba(245, 245, 220, 0.397);
+        border-radius: 10px;
+        width: 100%;
+        padding: 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formContainer {
+        width: 60%;
+    }
+
+    .mensaje div {
+        margin: 5px;
+        display: flex;
+    }
+
+
+}
+
+@media screen and (min-width:1320px) {
+    .mensaje, .direct1, .direct2, .mapsindustrial, .mapsmaderera{
+        width: 600px;
+    }
+
+    .contenedorImagen{
+        width: 600px;
+    }
+    .contenedorTexto{
+        width: 600px;
+    }
+}
+
+/*Fin MediaQueries*/
