@@ -1,89 +1,89 @@
 
 // defino un array de 9 productos con sus caracteristicas dimensionales y su precio unitario
-const productos = [
-    {
-        id: 1,
-        imagen: "./image/prod_tabla.jpg",
-        tipo: "Tabla",
-        espesor: 1,
-        ancho: 6,
-        largo: 3,
-        precio: 738.18
-    },
-    {
-        id: 2,
-        imagen: "./image/prod_tabla.jpg",
-        tipo: "Tabla",
-        espesor: 1,
-        ancho: 6,
-        largo: 4,
-        precio: 984.24
-    },
-    {
-        id: 3,
-        imagen: "./image/prod_tabla.jpg",
-        tipo: "Tabla",
-        espesor: 1,
-        ancho: 6,
-        largo: 5,
-        precio: 1230.30
-    },
-    {
-        id: 4,
-        imagen: "./image/prod_tirante.jpg",
-        tipo: "Tirante",
-        espesor: 2,
-        ancho: 4,
-        largo: 3,
-        precio: 1181.10
-    },
-    {
-        id: 5,
-        imagen: "./image/prod_tirante.jpg",
-        tipo: "Tirante",
-        espesor: 2,
-        ancho: 4,
-        largo: 4,
-        precio: 1574.78
-    },
-    {
-        id: 6,
-        imagen: "./image/prod_tirante.jpg",
-        tipo: "Tirante",
-        espesor: 2,
-        ancho: 4,
-        largo: 5,
-        precio: 1968.48
-    },
-    {
-        id: 7,
-        imagen: "./image/prod_viga.jpg",
-        tipo: "Viga",
-        espesor: 3,
-        ancho: 6,
-        largo: 3,
-        precio: 2952.72
-    },
-    {
-        id: 8,
-        imagen: "./image/prod_viga.jpg",
-        tipo: "Viga",
-        espesor: 3,
-        ancho: 6,
-        largo: 4,
-        precio: 3936.96
-    },
-    {
-        id: 9,
-        imagen: "./image/prod_viga.jpg",
-        tipo: "Viga",
-        espesor: 3,
-        ancho: 6,
-        largo: 5,
-        precio: 4921.20
-    },
+// const productos = [
+//     {
+//         id: 1,
+//         imagen: "./image/prod_tabla.jpg",
+//         tipo: "Tabla",
+//         espesor: 1,
+//         ancho: 6,
+//         largo: 3,
+//         precio: 738.18
+//     },
+//     {
+//         id: 2,
+//         imagen: "./image/prod_tabla.jpg",
+//         tipo: "Tabla",
+//         espesor: 1,
+//         ancho: 6,
+//         largo: 4,
+//         precio: 984.24
+//     },
+//     {
+//         id: 3,
+//         imagen: "./image/prod_tabla.jpg",
+//         tipo: "Tabla",
+//         espesor: 1,
+//         ancho: 6,
+//         largo: 5,
+//         precio: 1230.30
+//     },
+//     {
+//         id: 4,
+//         imagen: "./image/prod_tirante.jpg",
+//         tipo: "Tirante",
+//         espesor: 2,
+//         ancho: 4,
+//         largo: 3,
+//         precio: 1181.10
+//     },
+//     {
+//         id: 5,
+//         imagen: "./image/prod_tirante.jpg",
+//         tipo: "Tirante",
+//         espesor: 2,
+//         ancho: 4,
+//         largo: 4,
+//         precio: 1574.78
+//     },
+//     {
+//         id: 6,
+//         imagen: "./image/prod_tirante.jpg",
+//         tipo: "Tirante",
+//         espesor: 2,
+//         ancho: 4,
+//         largo: 5,
+//         precio: 1968.48
+//     },
+//     {
+//         id: 7,
+//         imagen: "./image/prod_viga.jpg",
+//         tipo: "Viga",
+//         espesor: 3,
+//         ancho: 6,
+//         largo: 3,
+//         precio: 2952.72
+//     },
+//     {
+//         id: 8,
+//         imagen: "./image/prod_viga.jpg",
+//         tipo: "Viga",
+//         espesor: 3,
+//         ancho: 6,
+//         largo: 4,
+//         precio: 3936.96
+//     },
+//     {
+//         id: 9,
+//         imagen: "./image/prod_viga.jpg",
+//         tipo: "Viga",
+//         espesor: 3,
+//         ancho: 6,
+//         largo: 5,
+//         precio: 4921.20
+//     },
 
-];
+// ];
 
 
 
@@ -102,40 +102,62 @@ let contenedorProductos = document.getElementById("contenedorProductos");
 
 
 
+
 //creamos una funcion para cargar los productos en el HTML
-function cargarProductos(productos) {
-    productos.forEach(producto => {
-        let div = document.createElement("div");
-        div.className = "boxProduct";
-        div.innerHTML = `
-                                <div>
-                                    <img class="imagenProducto" src="${producto.imagen}" alt="${producto.tipo}">
-                                </div>
-                                <div class="producto">
-                                    <h3>${producto.tipo} de Pino Elliotis ${producto.espesor}" x ${producto.ancho}" x ${producto.largo}m</h3>
-                                </div>
+async function cargarProductos() {
+    
+    try {
+        // await new Promise((resolve)=> setTimeout(resolve, 2000));
 
-                                <div>
-                                    <h2 class="subtituloEnColor">$${producto.precio}</h2>
-                                </div>
-                                <div class="boxPosition">
-                                    <input id="c${producto.id}" class="inputCantidad" type="number" name="cantidad"
-                                        placeholder="Cantidad" value="1" pattern="^[0-9]+" required>
-                                    <button type="button" id="a${producto.id}" class="botonAgregar"> Agregar </button>
-                                </div>
-                                `
-        contenedorProductos.append(div);
+        const response = await fetch("./data/data.json");
+        // if (!response.ok){
+        //     throw new Error("No se pudo cargar los productos");
+        // }
 
-        
+        const productos = await response.json();
 
-    })
+        productos.forEach(producto => {
+            let div = document.createElement("div");
+            div.className = "boxProduct";
+            div.innerHTML = `
+                                    <div>
+                                        <img class="imagenProducto" src="${producto.imagen}" alt="${producto.tipo}">
+                                    </div>
+                                    <div class="producto">
+                                        <h3>${producto.tipo} de Pino Elliotis ${producto.espesor}" x ${producto.ancho}" x ${producto.largo}m</h3>
+                                    </div>
+    
+                                    <div>
+                                        <h2 class="subtituloEnColor">$${producto.precio}</h2>
+                                    </div>
+                                    <div class="boxPosition">
+                                        <input id="c${producto.id}" class="inputCantidad" type="number" name="cantidad"
+                                            placeholder="Cantidad" value="1" pattern="^[0-9]+" required>
+                                        <button type="button" id="a${producto.id}" class="botonAgregar"> Agregar </button>
+                                    </div>
+                                    `
+            contenedorProductos.append(div);
+    
+            
+    
+        })
+
+       
+    } catch (error) {
+        console.error(error);
+
+    }
+
 
 }
 
-cargarProductos(productos); // llamamos a la funcion cargar productos
 
+ // llamamos a la funcion cargar productos
+ cargarProductos();
 
 // definimos el evento para escuchar a los botones agregar 
+
+
 
 function escucharBotonesAgregar() {
     let botonesAgregar = document.querySelectorAll(".botonAgregar")
