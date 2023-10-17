@@ -1,93 +1,4 @@
 
-// defino un array de 9 productos con sus caracteristicas dimensionales y su precio unitario
-// const productos = [
-//     {
-//         id: 1,
-//         imagen: "./image/prod_tabla.jpg",
-//         tipo: "Tabla",
-//         espesor: 1,
-//         ancho: 6,
-//         largo: 3,
-//         precio: 738.18
-//     },
-//     {
-//         id: 2,
-//         imagen: "./image/prod_tabla.jpg",
-//         tipo: "Tabla",
-//         espesor: 1,
-//         ancho: 6,
-//         largo: 4,
-//         precio: 984.24
-//     },
-//     {
-//         id: 3,
-//         imagen: "./image/prod_tabla.jpg",
-//         tipo: "Tabla",
-//         espesor: 1,
-//         ancho: 6,
-//         largo: 5,
-//         precio: 1230.30
-//     },
-//     {
-//         id: 4,
-//         imagen: "./image/prod_tirante.jpg",
-//         tipo: "Tirante",
-//         espesor: 2,
-//         ancho: 4,
-//         largo: 3,
-//         precio: 1181.10
-//     },
-//     {
-//         id: 5,
-//         imagen: "./image/prod_tirante.jpg",
-//         tipo: "Tirante",
-//         espesor: 2,
-//         ancho: 4,
-//         largo: 4,
-//         precio: 1574.78
-//     },
-//     {
-//         id: 6,
-//         imagen: "./image/prod_tirante.jpg",
-//         tipo: "Tirante",
-//         espesor: 2,
-//         ancho: 4,
-//         largo: 5,
-//         precio: 1968.48
-//     },
-//     {
-//         id: 7,
-//         imagen: "./image/prod_viga.jpg",
-//         tipo: "Viga",
-//         espesor: 3,
-//         ancho: 6,
-//         largo: 3,
-//         precio: 2952.72
-//     },
-//     {
-//         id: 8,
-//         imagen: "./image/prod_viga.jpg",
-//         tipo: "Viga",
-//         espesor: 3,
-//         ancho: 6,
-//         largo: 4,
-//         precio: 3936.96
-//     },
-//     {
-//         id: 9,
-//         imagen: "./image/prod_viga.jpg",
-//         tipo: "Viga",
-//         espesor: 3,
-//         ancho: 6,
-//         largo: 5,
-//         precio: 4921.20
-//     },
-
-// ];
-
-
-
-
 // defino un array vacio para el carrito de compras
 let carrito = [];
 
@@ -107,12 +18,12 @@ let contenedorProductos = document.getElementById("contenedorProductos");
 async function cargarProductos() {
     
     try {
-        // await new Promise((resolve)=> setTimeout(resolve, 2000));
+        await new Promise((resolve)=> setTimeout(resolve, 2000));
 
         const response = await fetch("./data/data.json");
-        // if (!response.ok){
-        //     throw new Error("No se pudo cargar los productos");
-        // }
+        if (!response.ok){
+            throw new Error("No se pudo cargar los productos");
+        }
 
         const productos = await response.json();
 
@@ -127,20 +38,21 @@ async function cargarProductos() {
                                         <h3>${producto.tipo} de Pino Elliotis ${producto.espesor}" x ${producto.ancho}" x ${producto.largo}m</h3>
                                     </div>
     
-                                    <div>
+                                    <div class="boxPosition">
+                                        <p> Precio: </p>
                                         <h2 class="subtituloEnColor">$${producto.precio}</h2>
                                     </div>
                                     <div class="boxPosition">
+                                    <p> Cantidad </p>
                                         <input id="c${producto.id}" class="inputCantidad" type="number" name="cantidad"
                                             placeholder="Cantidad" value="1" pattern="^[0-9]+" required>
                                         <button type="button" id="a${producto.id}" class="botonAgregar"> Agregar </button>
                                     </div>
                                     `
             contenedorProductos.append(div);
-    
-            
-    
         })
+
+        escucharBotonesAgregar(productos);
 
        
     } catch (error) {
@@ -158,21 +70,20 @@ async function cargarProductos() {
 // definimos el evento para escuchar a los botones agregar 
 
 
-
-function escucharBotonesAgregar() {
+function escucharBotonesAgregar(productos) {
     let botonesAgregar = document.querySelectorAll(".botonAgregar")
        console.log(botonesAgregar);
     botonesAgregar.forEach(boton => {
-        boton.addEventListener("click", agregarAlCarrito);
+        boton.addEventListener("click", (e) => agregarAlCarrito(e, productos));
     })
 
 }
-escucharBotonesAgregar();
+
 
 
 //creamos una funcion para agregar productos al carrito
 
-function agregarAlCarrito(e) {
+function agregarAlCarrito(e, productos) {
 
     let idBoton = e.currentTarget.id; //detectamos el boton agregar sobre el que se hizo click y capturamos su id
     console.log(idBoton);
@@ -215,6 +126,21 @@ function agregarAlCarrito(e) {
  
     document.getElementById(`${inputActual}`).value = 1; //limpiamos los campos de las cantidades
 
+    Toastify({
+        text: "Producto añadido",
+        duration: 1000,
+        
+        newWindow: true,
+        close: true,
+        gravity: "bottom", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        
+      }).showToast();
+
     mostrarCarrito(); //llamamos a la funcion que mostrara el carrito en el HTML
 }
 
@@ -227,12 +153,8 @@ function mostrarCarrito() {
 
     let productosEnCarrito; // definimos una variable local para trabajar los datos que obtenemos del storage
 
-// let carrito=JSON.parse(localStorage.getItem("carrito")) || [] ;
-    // console.log(carrito);
-
-
     productosEnCarrito = JSON.parse(localStorage.getItem("carrito"));
-    // console.log(productosEnCarrito);
+   
 
 
 // recorremos el array para mostrarlo en el DOM
@@ -270,7 +192,7 @@ console.log(botonesEliminar);
 
     botonesEliminar.forEach(boton => {
         boton.addEventListener("click", eliminarProducto);
-        
+
 
     })
 
@@ -288,8 +210,6 @@ function eliminarProducto(e){
     
     let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")); // variable local para traer del storage el contenido del carrito
    
-
-    console.log(carrito);
     console.log(productosEnCarrito);
 
     //recorremos el array temporal para encontrar el indice del producto que se desea eliminar
@@ -301,7 +221,73 @@ console.log(index);
 
     
     localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)); // una vez eliminado, volvemos a guardar en el storage el nuevo array
+    
+    
+    Toastify({
+        text: "Producto eliminado",
+        duration: 1000,
+        
+        newWindow: true,
+        close: true,
+        gravity: "bottom", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        
+      }).showToast();
+   
+   
+   
     mostrarCarrito()
+
+
+
+}
+
+// escuchamos el boton vaciar
+function escucharBotonVaciar() {
+    let botonVaciar = document.getElementById("botonVaciar")
+    botonVaciar.addEventListener("click", vaciarCarrito);
+
+}
+escucharBotonVaciar();
+
+function vaciarCarrito() {
+    let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")); // variable local para traer del storage el contenido del carrito
+   
+    if (productosEnCarrito.length==0){
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No hay productos en el carrito!',
+            
+          })
+       
+
+    } else {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Carrito vacio',
+            showConfirmButton: false,
+            timer: 2000
+          })
+
+
+
+
+          productosEnCarrito.length=0;
+              localStorage.setItem("carrito", JSON.stringify(productosEnCarrito)); // una vez eliminado, volvemos a guardar en el storage el nuevo array
+        
+
+    }
+
+    console.log(carrito);
+    console.log(productosEnCarrito);
+    mostrarCarrito();
 
 }
 
@@ -318,4 +304,57 @@ productos.forEach(producto => {
 })
 resultado.innerText=`$${total}`;
 
+}
+
+
+
+
+function botonComprar() {
+    let botonComprar = document.getElementById("botonComprar")
+    botonComprar.addEventListener("click", comprarCarrito);
+}
+
+botonComprar();
+
+// funcion para comprar
+function comprarCarrito(){
+    let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")); // variable local para traer del storage el contenido del carrito
+    
+    if (productosEnCarrito.length==0){
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No hay productos en el carrito!',
+            
+          })
+       
+
+    } else {
+        Swal.fire({
+            title: 'Debe Iniciar Sesión',
+            html: `<input type="text" id="login" class="swal2-input" placeholder="Username">
+            <input type="password" id="password" class="swal2-input" placeholder="Password">`,
+            confirmButtonText: 'Acceder',
+            focusConfirm: false,
+            preConfirm: () => {
+              const login = Swal.getPopup().querySelector('#usuario').value
+              const password = Swal.getPopup().querySelector('#contraseña').value
+              if (!login || !password) {
+                Swal.showValidationMessage(`Por favor, ingrese su usuario y contraseña`)
+              }
+              return { login: login, password: password }
+            }
+          }).then((result) => {
+            Swal.fire(`
+              Login: ${result.value.login}
+              Password: ${result.value.password}
+            `.trim())
+          })
+    }
+    
+    
+    
+    
+    
 }

@@ -28,6 +28,8 @@
     <!-- etiqueta de estilos bootstraps css -->
     <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
 
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- etiqueta de estilos css -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -115,7 +117,12 @@
                                 </div>
 
                                 <div id="result" class="col-xl-10">
+
+
+                                    
                                     <div class="fondoColor">
+
+                                        <h2 class="boxPosition"> Mi Carrito</h2>
                                         <ul>
                                             <li class="boxCabecera">
                                                 
@@ -149,9 +156,10 @@
 
                                         <ul id="total">
                                             <li class="boxDetalle">
+                                                <button type="button" id="botonVaciar" class="botonComprar"> Vaciar </button>
                                                 <p>TOTAL</p>
                                                 <p id="resultado"></p>
-                                                <!-- <button type="button" id="comprar" class="botonComprar"> Comprar </button> -->
+                                                <button type="button" id="botonComprar" class="botonComprar"> Comprar </button>
                                             </li>
                                         </ul>
                                        
@@ -227,6 +235,8 @@
 
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/index.js"></script>
 </body>
 
